@@ -9,3 +9,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class CreateUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserProfile
+        fields = ('name', 'age','bio','email')
+
+
