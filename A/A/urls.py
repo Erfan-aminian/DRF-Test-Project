@@ -1,10 +1,9 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from api.views import user_profile, update_user_profile, delete_user_profile
+from api.views import UserProfileView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/', user_profile, name='user_profile'),
-    path('user/<id>/', update_user_profile, name='update_user_profile'),
-    path('user/del/<id>/', delete_user_profile, name='delete_user_profile'),
+    path('user/', UserProfileView.as_view(), name='user_profile'),
+    path('user/<id>/', UserProfileView.as_view(), name='update_user_profile'),
 ]
