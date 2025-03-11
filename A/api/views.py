@@ -4,9 +4,16 @@ from .serializers import UserProfileSerializer, CreateUserSerializer
 from .models import UserProfile
 from rest_framework import status
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 
 # Create your views here.
+class ListUserProfileView(ListAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
 
+class CreateUserProfileView(CreateAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = CreateUserSerializer
 class UserProfileView(APIView):
     def get(self, request):
         all_user_profile_obj = UserProfile.objects.all()
